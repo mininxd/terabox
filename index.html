@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#333" />
+<title>Mininxd Downloader</title>
+
+<link rel="stylesheet" href="./css/style.css">
+<script type="module" src="./js/script.js"></script>
+  </head>
+  
+<body>
+<div class="container">
+
+<center>
+  <div class="content is-normal">
+  <img src="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHM0OYfiFeMI2p9MWie0CvL99U4GA1gf6_kayTt_kBblFwHwo8BW8JXlqfnYxKPmmBavZ3kw9ja.DSKEM3oHma_Yp_x3MQ1_IbkBOThLBQLY8ddu3wRMBd2op5k7nrOIgg64t7TDg07cd.p3G0AwnkZA-&format=source&h=464" width="128">
+  <h1>Terabox Downloader</h1>
+  </div>
+  </center>
+
+<div class="fleksibel">
+  <br>
+<input id="inputEl" placeholder="https://terabox.com/s/..." class="input is-rounded is-normal is-dark">
+<button id="fetchLink" class="button is-rounded is-dark">GO</button>
+</div>
+<br>
+
+</div>
+
+  <div id="loadingEl" style="display:none" class="container is-fluid">
+    <p>Processing your link</p>
+  <progress id="prog" class="progress is-dark is-small"  max="100"></progress>
+  </div>
+  <br>
+<div class="container is-fluid">
+  <div id="errorMsg" class="notification" style="display:none">
+  <button id="hideError" class="delete"></button>
+  <span id="errorText"></span>
+  </div>
+
+
+
+<div id="downloadBtn" style="display:none">
+  <div class="buttons is-centered">
+  <button id="copyLinkEl" class="button is-dark is-rounded">
+    Copy Link
+    </button>
+    <a id="downloadLinkEl">
+  <button class="button is-dark is-rounded">
+    Download
+  </button>
+  </a>
+  </div>
+  
+<div class="control">
+  <p>Direct download link :</p>
+  <textarea id="linkTextEl" class="textarea"></textarea>
+  </div>
+</div>
+
+
+</div>
+
+
+<div id="footer" class="kaki">
+<a class="donate" href="https://saweria.co/mininxd">Donate Saweria</a><br>
+  mininxd 2024 - Present
+</div>
+</body>
+  </html>
