@@ -1,1 +1,38 @@
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
+
+html {
+  font-family: 'Roboto', Sans-Serif;
+  scroll-behavior: smooth;
+  transition: 0.3s;
+}
+div.is-normal h1 {
+  line-height: 10px;
+}
+div.fleksibel {
+  padding-left: 5%;
+  padding-right: 5%;
+  justify-content: space-between;
+}
+input {
+  width: 80% !important;
+}
+span#errorMsg, span#errorText {
+  font-family: Monospace;
+}
+a.donate {
+  font-family: Monospace;
+  color:#000;
+  opacity: 1;
+  text-decoration: underline;
+  font-size: 14px;
+}
+.kaki {
+  position: absolute;
+  text-align: center;
+  font-size:10px;
+  opacity: 0.8;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
