@@ -27,6 +27,13 @@ a.donate {
   text-decoration: underline;
   font-size: 14px;
 }
+.tags {
+  margin:2px;
+}
+.delete {
+  opacity: 0.5 !important;
+  padding-top:2px;
+}
 button {
   transition: 0.3s;
 }
