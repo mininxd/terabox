@@ -11,11 +11,8 @@ fetch(teraApi).then(res => {return res.json()}).then((data) => {
   }).catch((e) => {
     serverCheckEl.style.display = "none";
     statFail.style.display = "block";
-  
     if(e.message == "Failed to fetch") {
-      failText.innerHTML = "check your connection"
-    } else {
-      failText.innerHTML = "server is down! try again after 10 minutes!"
+      failText.innerHTML = "check your connection, or server is down! try again after 10 minutes!"
     }
     
   })
