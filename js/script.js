@@ -1,4 +1,14 @@
 import {fetchTerabox} from '../terabox.js';
+import {checkServer} from './serverCheck.js';
+
+checkServer();
+
+delStat.addEventListener("click", function() {
+  statOK.style.display="none";
+})
+delStatt.addEventListener("click", function() {
+  statFail.style.display="none";
+})
 
 inputEl.addEventListener("focus", function() {
   footer.style.display ="none"
