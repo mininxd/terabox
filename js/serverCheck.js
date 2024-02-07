@@ -2,7 +2,7 @@ import {teraApi} from './apiList.js';
 
 export function checkServer() {
 fetch(teraApi).then(res => {return res.json()}).then((data) => {
-  console.log(data);
+  
   if(data.error) {
     serverCheckEl.style.display = "none";
     statOK.style.display = "block";
