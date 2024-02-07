@@ -54,7 +54,7 @@ else if (e.message.includes("reading 'link'")) {
 } else {
     errorMsg.style.display ="block";
   errorMsg.classList.add("is-danger")
-    errorText.innerHTML = "Error: Cek koneksi internet kamu";
+    errorText.innerHTML = "Error: 500 Internal server Error <br> - Failed To Fetch Terabox";
     loadingEl.style.display = "none";
 }
 })
