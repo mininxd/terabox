@@ -27,6 +27,21 @@ a.donate {
   text-decoration: underline;
   font-size: 14px;
 }
+button {
+  transition: 0.3s;
+}
+button.fetchLink {
+  width: 30%;
+}
+button:focus, button:active {
+background: #eee !important;
+color: #000 !important;
+}
+textarea {
+  border-radius: 10px;
+  border: 1px solid #000 !important;
+  resize: none !important;
+}
 .kaki {
   position: absolute;
   text-align: center;
