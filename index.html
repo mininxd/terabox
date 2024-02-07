@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#333" />
-<title>Terabox Downloader - mininxd</title>
+<title>Mininxd Downloader</title>
 
 <link rel="stylesheet" href="./css/style.css">
 <script type="module" src="./js/script.js"></script>
@@ -24,9 +24,26 @@
 <input id="inputEl" placeholder="https://terabox.com/s/..." class="input is-rounded is-normal is-dark">
 <button id="fetchLink" class="button is-rounded is-dark">GO</button>
 </div>
-<br>
-
 </div>
+
+<div class="container is-fluid">
+<div id="serverCheckEl" style="font-size:12px" class="is-small">
+    <progress style="width:80%; height:4px" class='progress is-info is-light is-small' max="100"></progress>
+    Server Checking...
+  </div>
+  <span id="statOK" style="display:none; width:fit-content" class="tag tags is-success is-light">
+    Server is up! 
+    <button id="delStat" class="delete is-small"></button>
+    </span>
+  <span id="statFail" style="display:none; width:fit-content" class="tag tags is-danger is-light">
+    <span id="failText">
+    Server is down! 
+    </span>
+    <button id="delStatt" class="delete is-small"></button>
+    </span>
+    <br>
+</div>
+
 
   <div id="loadingEl" style="display:none" class="container is-fluid">
     <p>Processing your link</p>
