@@ -20,7 +20,7 @@ fetchLink.classList.remove("disabled", "is-loading");
   linkTextEl.append(data.linkdl[0].link);
   
   
-  console.log(data)
+  
   
   if(data.error) {
     downloadBtn.style.display ="none";
@@ -43,7 +43,7 @@ fetchLink.classList.remove("disabled", "is-loading");
 
 fetchLink.removeAttribute("disabled", "");
 fetchLink.classList.remove("disabled", "is-loading");
-console.log(e.message);
+// console.log(e.message);
 
 if (e.message.includes("reading '0'")) {
   errorMsg.style.display ="block";
@@ -61,7 +61,7 @@ else if (e.message.includes("reading 'link'")) {
 } else {
     errorMsg.style.display ="block";
   errorMsg.classList.add("is-danger")
-    errorText.innerHTML = "Error: Cek koneksi internet kamu";
+    errorText.innerHTML = "Error: Failed to Fetch";
     loadingEl.style.display = "none";
 }
 })
