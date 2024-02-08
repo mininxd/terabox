@@ -40,6 +40,10 @@ button {
 button.fetchLink {
   width: 30%;
 }
+button.disabled {
+  color: #fff;
+  background: #333;
+}
 button:focus, button:active {
 background: #eee !important;
 color: #000 !important;
