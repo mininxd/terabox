@@ -15,7 +15,7 @@ div.fleksibel {
   justify-content: space-between;
 }
 input {
-  width: 80% !important;
+  width: 78% !important;
 }
 span#errorMsg, span#errorText {
   font-family: Monospace;
