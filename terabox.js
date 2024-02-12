@@ -34,7 +34,7 @@ fetchLink.classList.remove("disabled", "is-loading");
     downloadBtn.style.display ="none";
     errorMsg.style.display ="block";
   errorMsg.classList.add("is-warning")
-  errorText.innerHTML = "Error: Masukan link dengan benar";
+  errorText.innerHTML = "Error: \n - Masukan link dengan benar \n - Tidak dapat mendapatkan informasi file";
   loadingEl.style.display = "none";
   }
   
@@ -55,7 +55,7 @@ if (e.message.includes("reading '0'")) {
 else if (e.message.includes("reading 'link'")) {
   errorMsg.style.display ="block";
   errorMsg.classList.add("is-warning")
-  errorText.innerHTML = "Error: Masukan link dengan benar";
+  errorText.innerHTML = "Error: \n - Masukan link dengan benar \n - Tidak bisa mendapatkan informasi file";
   loadingEl.style.display = "none";
   
 } else {
