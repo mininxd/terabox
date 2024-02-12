@@ -12,7 +12,7 @@ fetch(teraApi).then(res => {return res.json()}).then((data) => {
     serverCheckEl.style.display = "none";
     statFail.style.display = "block";
     if(e.message == "Failed to fetch") {
-      failText.innerHTML = "check your connection, or server is down! try again after 10 minutes!"
+      failText.innerHTML = "Server connection timed out <br>try again after 10 minutes!"
     }
     
   })
