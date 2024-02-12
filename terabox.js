@@ -61,7 +61,7 @@ else if (e.message.includes("reading 'link'")) {
 } else {
     errorMsg.style.display ="block";
   errorMsg.classList.add("is-danger")
-    errorText.innerHTML = "Error: Failed to Fetch";
+    errorText.innerHTML = "Error: Connection timed out";
     loadingEl.style.display = "none";
 }
 })
