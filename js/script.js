@@ -3,19 +3,11 @@ import {checkServer} from './serverCheck.js';
 
 checkServer();
 
-delStat.addEventListener("click", function() {
-  statOK.style.display="none";
-})
-delStatt.addEventListener("click", function() {
-  statFail.style.display="none";
-})
+setTimeout(function() {
+  serverStats.style.display="none";
+}, 2000)
 
-inputEl.addEventListener("focus", function() {
-  footer.style.display ="none"
-})
-inputEl.addEventListener("blur", function() {
-  footer.style.display ="block"
-})
+
 fetchLink.addEventListener("click", function() {
   fetchTerabox();
 

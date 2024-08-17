@@ -31,17 +31,8 @@
     <progress style="width:80%; height:4px" class='progress is-info is-light is-small' max="100"></progress>
     Server Checking...
   </div>
-  <span id="statOK" style="display:none; width:fit-content" class="tag tags is-success is-light">
-    Server is up! 
-    <button id="delStat" class="delete is-small"></button>
+  <span id="serverStats" style="display:none; width:fit-content" class="tag tags is-success is-light">
     </span>
-  <span id="statFail" style="display:none; width:fit-content" class="tag tags is-danger is-light">
-    <span id="failText">
-    Server is down! 
-    </span>
-    <button id="delStatt" class="delete is-small"></button>
-    </span>
-    <br>
 </div>
 
 
@@ -56,6 +47,13 @@
   <span id="errorText"></span>
   </div>
 
+<div class="fileInfo">
+ <center> <img id="fileThumb"></center>
+  <div class="fileNameInfo">
+    <span id="fileName"></span><br>
+    <span id="fileSize"></span>
+  </div>
+</div>
 
 
 <div id="downloadBtn" style="display:none">
@@ -79,10 +77,15 @@
 
 </div>
 
-
-<div id="footer" class="kaki">
-<a class="donate" href="https://saweria.co/mininxd">Donate Saweria</a><br>
-  mininxd 2024 - Present
+<br><br>
+<div id="footer" style="display: none;" class="kaki">
+   <a href="https://saweria.co/mininxd/">
+   <button class="button is-dark is-rounded">
+   Saweria
+  </button>
+   </a>
+   <br>
+     mininxd 2024 - Present
 </div>
 </body>
   </html>

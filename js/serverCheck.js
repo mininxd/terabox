@@ -1,19 +1,16 @@
-import {teraApi} from './apiList.js';
+import {api} from './apiList.js';
 
 export function checkServer() {
-fetch(teraApi).then(res => {return res.json()}).then((data) => {
-  
-  if(data.error) {
+fetch(api).then(res => {return res.json()}).then((data) => {
     serverCheckEl.style.display = "none";
-    statOK.style.display = "block";
-  }
+    serverStats.style.display = "block";
+    serverStats.innerHTML = "Server is up!"
   
   }).catch((e) => {
     serverCheckEl.style.display = "none";
-    statFail.style.display = "block";
-    if(e.message == "Failed to fetch") {
-      failText.innerHTML = "Server connection timed out <br>try again after 10 minutes!"
-    }
-    
+    serverStats.style.display = "block";
+    serverStats.innerHTML = "server is down";
+    serverStats.classList.remove('is-success')
+    serverStats.classList.add('is-danger')
   })
 }

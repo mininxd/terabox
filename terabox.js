@@ -1,70 +1,39 @@
-import {teraApi} from './js/apiList.js';
+import {api, uri} from './js/apiList.js';
 
 export function fetchTerabox() {
 let teraLink = inputEl.value;
+serverStats.style.display="none";
 
 fetchLink.setAttribute("disabled", "");
 fetchLink.classList.add("disabled", "is-loading");
 loadingEl.style.display = "block";
 errorMsg.style.display ="none";
 
-fetch(teraApi + teraLink).then((res) => {
+fetch(api + uri(teraLink)).then((res) => {
   return res.json();
 }).then((data) => {
-  fetchLink.removeAttribute("disabled", "");
+if(!data.file) {
+loadingEl.style.display = "none";
+fetchLink.removeAttribute("disabled", "");
+fetchLink.classList.remove("disabled", "is-loading");
+} else {
+fetchLink.removeAttribute("disabled", "");
 fetchLink.classList.remove("disabled", "is-loading");
   downloadBtn.style.display ="block";
   loadingEl.style.display = "none";
+  downloadLinkEl.setAttribute("href", data.file[0].url);
+  linkTextEl.append(data.file[0].url);
+  fileThumb.src = data.file[0].thumbnail;
+  fileName.innerHTML = data.file[0].name;
+  fileSize.innerHTML = data.file[0].size + ' MB';
+  console.log(data.messages)
   
-  downloadLinkEl.setAttribute("href", data.linkdl[0].link);
-  linkTextEl.append(data.linkdl[0].link);
-  
-  
-  
-  
-  if(data.error) {
-    downloadBtn.style.display ="none";
-    errorMsg.style.display ="block";
-    errorMsg.classList.add("is-warning")
-    errorText.innerHTML = "Error: Link masih kosong";
-    loadingEl.style.display = "none";
-  }
-  
-  if(data.linkdl == "") {
-    downloadBtn.style.display ="none";
-    errorMsg.style.display ="block";
-  errorMsg.classList.add("is-warning")
-  errorText.innerHTML = "Error: <br>- Masukan link dengan benar <br>- Tidak dapat mendapatkan informasi file";
-  loadingEl.style.display = "none";
-  }
-  
-  
+  footer.style.display ="block";
+}
 }).catch((e) => {
-
+  console.log(e);
 fetchLink.removeAttribute("disabled", "");
 fetchLink.classList.remove("disabled", "is-loading");
-// console.log(e.message);
-
-if (e.message.includes("reading '0'")) {
-  errorMsg.style.display ="block";
-    errorMsg.classList.add("is-warning")
-    errorText.innerHTML = "Error: Link masih kosong";
-    loadingEl.style.display = "none";
-} 
-
-else if (e.message.includes("reading 'link'")) {
-  errorMsg.style.display ="block";
-  errorMsg.classList.add("is-warning")
-  errorText.innerHTML = "Error: <br>- Masukan link dengan benar <br>- Tidak dapat mendapatkan informasi file";
-  loadingEl.style.display = "none";
-  
-} else {
-    errorMsg.style.display ="block";
-  errorMsg.classList.add("is-danger")
-    errorText.innerHTML = "Error: Connection timed out";
-    loadingEl.style.display = "none";
-}
 })
-
 
 }

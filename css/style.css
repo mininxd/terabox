@@ -54,11 +54,31 @@ textarea {
   resize: none !important;
 }
 .kaki {
-  position: absolute;
   text-align: center;
-  font-size:10px;
-  opacity: 0.8;
+  font-size:15px;
   bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
 }
+
+.fileInfo {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: (1,1fr);
+  text-align: center;
+  margin: 10px 0 1.5em 0;
+}
+.fileNameInfo {
+  display: block;
+}
+#fileName {
+  font-weight: 600;
+  font-size: 18px;
+}
+#fileSize {
+  font-weight: 400;
+  font-size: 16px;
+}
+#fileThumb {
+  max-width: 70vw;
+  height: auto;
+}
+
