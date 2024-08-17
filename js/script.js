@@ -3,13 +3,10 @@ import {checkServer} from './serverCheck.js';
 
 checkServer();
 
-setTimeout(function() {
-  serverStats.style.display="none";
-}, 2000)
-
 
 fetchLink.addEventListener("click", function() {
   fetchTerabox();
+serverStats.style.display="none";
 
 })
 copyLinkEl.addEventListener("click", function() {
