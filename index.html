@@ -1,10 +1,10 @@
 <html>
   <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<title>mininxd - Terabox Downloader</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#333" />
-<title>mininxd - Terabox Downloader</title>
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <link rel="stylesheet" href="./css/style.css">
 <script type="module" src="./js/script.js"></script>
   </head>
@@ -12,80 +12,58 @@
 <body>
 <div class="container">
 
-<center>
-  <div class="content is-normal">
-  <img src="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHM0OYfiFeMI2p9MWie0CvL99U4GA1gf6_kayTt_kBblFwHwo8BW8JXlqfnYxKPmmBavZ3kw9ja.DSKEM3oHma_Yp_x3MQ1_IbkBOThLBQLY8ddu3wRMBd2op5k7nrOIgg64t7TDg07cd.p3G0AwnkZA-&format=source&h=464" width="128">
-  <h1>Terabox Downloader</h1>
-  </div>
-  </center>
-
-<div class="fleksibel">
-  <br>
-<input id="inputEl" placeholder="https://terabox.com/wap/..." class="input is-rounded is-normal is-dark">
-<button id="fetchLink" class="button is-rounded is-dark">GO</button>
-</div>
-</div>
-
-<div class="container is-fluid">
-<div id="serverCheckEl" style="font-size:12px" class="is-small">
-    <progress style="width:80%; height:4px" class='progress is-info is-light is-small' max="100"></progress>
-    Server Checking...
-  </div>
-  <span id="serverStats" style="display:none; width:fit-content" class="tag tags is-success is-light">
-    </span>
-</div>
-
-
-  <div id="loadingEl" style="display:none" class="container is-fluid">
-    <p>Processing your link</p>
-  <progress id="prog" class="progress is-dark is-small"  max="100"></progress>
-  </div>
-  <br>
-<div class="container is-fluid">
-  <div id="errorMsg" class="notification" style="display:none">
-  <button id="hideError" class="delete"></button>
-  <span id="errorText"></span>
-  </div>
-
-<div class="fileInfo">
- <center> <img id="fileThumb"></center>
-  <div class="fileNameInfo">
-    <span id="fileName"></span><br>
-    <span id="fileSize"></span>
-  </div>
-</div>
-
-
-<div id="downloadBtn" style="display:none">
-  <div class="buttons is-centered">
-  <button id="copyLinkEl" class="button is-dark is-rounded">
-    Copy Link
-    </button>
-    <a id="downloadLinkEl">
-  <button class="button is-dark is-rounded">
-    Download
-  </button>
-  </a>
-  </div>
+  <img width="64" src="./icon.png">
+  <h1 class="is-3 title">Terabox Downloader</h1>
+<div class="form-wrapper">
   
-<div class="control">
-  <p>Direct download link :</p>
-  <textarea id="linkTextEl" class="textarea"></textarea>
+  
+  <form class="control is-flex">
+<input class="input" placeholder="https://terabox.com/wap/..." id="inputURL">
+<button class="button is-dark" id="fetchBtn">GO</button>
+</form>
+</div>
+
+<div id="checking">
+  <progress id="progressCheck" class="progress is-small is-dark" max="100">
+  </progress>
+  <span id="statusTag" class="tag">Checking Server...</span>
   </div>
+
+<div class="msg-wrapper">
+
+</div>
+
+<div class="result-wrapper">
+<div id="hiddenItem" class="is-hidden skeleton">
+    <div class="is-skeleton row">
+    <div class="cell"></div>
+    </div>
+    <div class="is-skeleton row">
+    <div class="cell"></div>
+    </div>
+    <div class="is-skeleton row">
+    <div class="cell"></div>
+    </div>
+</div>
+  <div id="fileResult" class="">
+
+</div>
+</div>
+
 </div>
 
 
-</div>
-
-<br><br>
-<div id="footer" style="display: none;" class="kaki">
-   <a href="https://saweria.co/mininxd/">
-   <button class="button is-dark is-rounded">
-   Saweria
-  </button>
-   </a>
-   <br>
-     mininxd 2024 - Present
+<div id="footer" class="is-hidden footer">
+<button id="donate" class="button is-small is-dark">
+  Saweria
+</button>
+<button id="whatsapp" class="button is-small is-dark">
+  Whatsapp
+</button>
+<br>
+<center>
+<span>made with ❤️ <br> 2024 - present &copy; mininxd</span>
+</center>
 </div>
 </body>
   </html>

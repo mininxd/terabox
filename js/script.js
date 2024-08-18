@@ -1,20 +1,23 @@
-import {fetchTerabox} from '../terabox.js';
-import {checkServer} from './serverCheck.js';
+import {getTera} from './fetchData.js';
 
-checkServer();
+let url = "https://www.1024tera.com/wap/share/filelist?surl=AjsgcC3UA194wzwBMROC7A"
 
-serverStats.addEventListener("click", function() {
-serverStats.style.display="none";
-})
-fetchLink.addEventListener("click", function() {
-  fetchTerabox();
-serverStats.style.display="none";
 
-})
-copyLinkEl.addEventListener("click", function() {
-  navigator.clipboard.writeText(linkTextEl.textContent)
+
+fetchBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  hiddenItem.classList.remove('is-hidden');
+  this.classList.add('is-loading');
+  this.disabled = true;
+  getTera(inputURL.value)
 })
 
-hideError.addEventListener("click", function() {
-  errorMsg.style.display = "none"
-})
+
+/*
+fetch('./test.json').then(res => {
+  return res.json()
+}).then(data => {
+  console.log(data)
+
+}).catch(e => {console.log(e)})
+*/

@@ -1,0 +1,74 @@
+* {
+  scrollbar-highlight-color: transparent;
+  --webkit-tap-highlight-color: transparent;
+  --webkit-tap-highlight-color: rgb(0,0,0,0);
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.container {
+  padding: 1em 10px 10px 1em;
+}
+#checking {
+  padding: 0 1em 0 1em;
+  margin: 0 0 1em 0;
+}
+#checking progress {
+  line-height: 0 !important;
+  margin: 0;
+  padding: 0 !important;
+}
+
+form {
+  margin: 0;
+}
+form > button {
+  border-radius: 0 10px 10px 0 !important;
+}
+input, input:focus, input:active  {
+  border-radius: 10px 0 0 10px !important;
+  outline: none;
+}
+.row {
+  display: grid;
+  grid-template-columns: 15% 60% 10% 10%;
+  border: 1px solid #5552;
+  border-radius: 10px;
+  margin: 5px;
+}
+.cell {
+  margin: 10px;
+  padding: 5px;
+  overflow-x: scroll;
+}
+.cell:nth-child(3), .cell:nth-child(4) {
+  display: grid;
+  width: 40px;
+  height: inherit;
+  align-items: center;
+}
+.cell .material-symbols-outlined {
+  line-height: 35px;
+}
+span.fileName {
+  color: #222;
+}
+span.fileSize {
+  color: #777;
+}
+.subtitle {
+  font-weight: 400 !important;
+}
+#footer {
+  background: inherit;
+}
+#footer span {
+  font-size: 12px;
+  text-align: center;
+  font-family: Monospace;
+}
