@@ -14,8 +14,9 @@ for(var i = 0; i < data.file.length; i++) {
   
   let thumb = document.createElement('img');
   let thumbCell = document.createElement('div');
+  thumb.classList.add('thumb')
   thumbCell.classList.add('cell')
-  
+
   let fileName = document.createElement('span');
   let fileNameCell = document.createElement('div');
   fileName.classList.add('fileName','title','is-6')
