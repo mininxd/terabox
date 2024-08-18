@@ -1,17 +1,18 @@
 import {getTera} from './fetchData.js';
-
-let url = "https://www.1024tera.com/wap/share/filelist?surl=AjsgcC3UA194wzwBMROC7A"
-
-
+import {api, uri} from './api.js';
+let link = document.getElementById('inputUrl');
 
 fetchBtn.addEventListener('click', function(e) {
   e.preventDefault();
   hiddenItem.classList.remove('is-hidden');
-  this.classList.add('is-loading');
-  this.disabled = true;
-  getTera(inputURL.value)
+  fetchBtn.classList.add('is-loading');
+  fetchBtn.disabled = true;
+  try {
+  getTera(api + uri(link.value));
+  } catch(e) {
+  console.log(e)
+  }
 })
-
 
 /*
 fetch('./test.json').then(res => {

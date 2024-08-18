@@ -3,14 +3,11 @@ import './checkServer.js';
 
 export function getTera(url) {
   fileResult.innerHTML = "";
-fetch('https://api.dapuntaratya.com/terabox-api/fetch?url=' + url).then(res => {
+fetch(url).then(res => {
   return res.json();
 }).then(data => {
-
 for(var i = 0; i < data.file.length; i++) {
-//  console.log(obj.file[i])
   let files = data.file[i];
-  
   
   let row = document.createElement('div');
   row.classList.add('row');
@@ -85,15 +82,8 @@ whatsapp.addEventListener('click', function() {
 })
 
 
-
-
-if(data == undefined) {
-  fetchBtn.classList.remove('is-loading');
-  fetchBtn.disabled = false;
-  hiddenItem.classList.add('is-hidden');
-  footer.classList.add('is-hidden');
-}
 }).then(e => {
+  console.log(e)
   fetchBtn.classList.remove('is-loading');
   fetchBtn.disabled = false;
   hiddenItem.classList.add('is-hidden');
