@@ -7,7 +7,7 @@ fetch('https://api.dapuntaratya.com/terabox-api/fetch?url=' + url).then(res => {
   return res.json();
 }).then(data => {
 
-for(var i = 0; i < obj.length; i++) {
+for(var i = 0; i < data.file.length; i++) {
 //  console.log(obj.file[i])
   let files = data.file[i];
   
