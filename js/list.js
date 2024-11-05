@@ -1,4 +1,4 @@
-export function downloadList(elem, i) {
+export function downloadList(item, index) {
 let row = document.createElement("div");
 row.classList.add("row");
 

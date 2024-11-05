@@ -8,10 +8,10 @@ fetchBtn.addEventListener('click', function(e) {
   fetchBtn.classList.add('is-loading');
   fetchBtn.disabled = true;
   try {
-  getTera();
- // getTera(file_gen + uri(link.value));
+//  getTera();
+ getTera(file_gen + uri(link.value));
   } catch(e) {
-  console.log(e)
+  console.log("error")
   }
 })
 

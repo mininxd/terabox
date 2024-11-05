@@ -1,6 +1,6 @@
 import './checkServer.js';
 import {downloadList} from './list.js';
-import {nestedFolder} from './api.js';
+import {link_gen, nestedFolder, uri} from './api.js';
 
 function sliced(str) {
   return str.substring(str.lastIndexOf("/") + 1);
@@ -15,10 +15,10 @@ function sliced(str) {
 
 export function getTera(url) {
   fileResult.innerHTML = "";
-  
-fetch('https://api.mininxd.my.id/terabox/test').then(res => {
+fetch(url).then(res => {
   return res.json();
 }).then(response => {
+  console.log(response)
   const data = response.nested;
   const dataLength = Object.keys(data[0]).length;
   
@@ -28,11 +28,103 @@ fetch('https://api.mininxd.my.id/terabox/test').then(res => {
   let filename = slicedName(data[0][i].path)
   let image = data[0][i].image;
   let size = data[0][i].size;
-  let link = data[0][i].link
-  console.log(fs,filename, image, size, link)
+  let link = data[0][i].link;
+  const downItem = createItem(data[0][i], i);
+  fileResult.append(downItem)
   }
+  
+  
+  
+function createItem(item, index) {
+let filename = slicedName(item.path);
+let filesize = Number(item.size / (1024 * 1024)).toFixed(2);
+if(!filename) {
+  return
+} else {
+let row = document.createElement("div");
+row.classList.add("row");
+
+let cell1 = document.createElement("div");
+cell1.classList.add("cell");
+
+let img = document.createElement("img");
+img.src = item.image;
+img.classList.add("thumb");
+cell1.append(img);
+
+let cell2 = document.createElement("div");
+cell2.classList.add("cell");
+
+let filenameSpan = document.createElement("span");
+filenameSpan.classList.add("bold");
+filenameSpan.textContent = filename;
+cell2.append(filenameSpan);
+
+let filesizeDiv = document.createElement("div");
+filesizeDiv.classList.add("tag","mx-1");
+filesizeDiv.textContent = filesize.toString() + "MB";
+cell2.append(filesizeDiv);
+
+let br = document.createElement("br");
+
+let downBtn = document.createElement("div");
+downBtn.classList.add("button", "is-dark", "is-small");
+downBtn.textContent = "download";
+
+let serverDownload = document.createElement("div");
+serverDownload.classList.add("is-hidden");
+
+let grid = document.createElement("div");
+grid.classList.add("grid", "is-col-min-3");
+
+let servers = ["server 1", "server 2", "server 3"];
+servers.forEach(server => {
+  let itemDiv = document.createElement("div");
+  itemDiv.classList.add("items");
+
+  let button = document.createElement("button");
+  button.classList.add("button", "is-dark", "is-small");
+  button.textContent = server;
+  itemDiv.append(button);
+  grid.append(itemDiv);
+});
 
 
+
+
+
+downBtn.addEventListener('click', ()=> {
+  downBtn.classList.add("is-loading");
+    console.log(item.link)
+try {
+fetch(link_gen + uri(item.link)).then(res => {
+  }).then(data => {
+    console.log(data)
+ downBtn.classList.add('is-hidden') 
+ serverDownload.classList.remove('is-hidden')
+
+  document.querySelectorAll('.items button').forEach(button => {
+        button.addEventListener('click', () => {
+      
+        })
+      })
+  })
+} catch(e) {
+  console.log("error")
+  }
+})
+
+
+serverDownload.append(grid);
+row.append(cell1);
+row.append(cell2);
+row.append(br);
+row.append(downBtn);
+row.append(serverDownload);
+
+return row;
+ }
+}
 
 
 footer.classList.remove('is-hidden');
