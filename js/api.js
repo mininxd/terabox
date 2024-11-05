@@ -1,6 +1,7 @@
 export const getConf = 'https://teradl-api.dapuntaratya.com/get_config';
+export const file_data = 'https://api.mininxd.my.id/terabox/getFile?url=';
 export const file_gen = 'https://api.mininxd.my.id/terabox/getFiles?url=';
-export const link_gen = 'https://api.mininxd.my.id/terabox/getLink?url=';
+export const link_gen = 'https://api.mininxd.my.id/terabox/getLink';
 
 export function uri(url) {
   return encodeURIComponent(url);

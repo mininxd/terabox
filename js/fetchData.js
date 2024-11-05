@@ -28,7 +28,6 @@ fetch(url).then(res => {
   let filename = slicedName(data[0][i].path)
   let image = data[0][i].image;
   let size = data[0][i].size;
-  let link = data[0][i].link;
   const downItem = createItem(data[0][i], i);
   fileResult.append(downItem)
   }
@@ -39,7 +38,7 @@ function createItem(item, index) {
 let filename = slicedName(item.path);
 let filesize = Number(item.size / (1024 * 1024)).toFixed(2);
 if(!filename) {
-  return
+  return ""
 } else {
 let row = document.createElement("div");
 row.classList.add("row");
@@ -91,13 +90,18 @@ servers.forEach(server => {
 
 
 
-
-
+let js_token = jstoken.textContent.replace(/"/g,"");
+let browserId = browserid.textContent.replace(/"/g,"");
+let cookieEl = cookie.textContent.replace(/"/g,"");
+let timestampEl = timestamp.textContent.replace(/"/g,"");
+let shareidEl = shareid.textContent.replace(/"/g,"");
+let ukEl = uk.textContent.replaceAll(/"/g,"");
 downBtn.addEventListener('click', ()=> {
+console.log(js_token)
   downBtn.classList.add("is-loading");
-    console.log(item.link)
+
 try {
-fetch(link_gen + uri(item.link)).then(res => {
+fetch(link_gen).then(res => { return res.json();
   }).then(data => {
     console.log(data)
  downBtn.classList.add('is-hidden') 

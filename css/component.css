@@ -81,3 +81,12 @@ border-radius: 5px;
 .bold {
   font-weight: bold;
 }
+
+.data-info .wrapper {
+  max-width: 80%;
+  font-size: 8px;
+  opacity: 0.3;
+  padding: 3em !important;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
