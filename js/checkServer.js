@@ -1,14 +1,15 @@
+import {getConf} from './api.js';
 function hide(element) {
   setTimeout( function() {
    element.style.display = 'none';
   }, 2500);
 }
 
-fetch('https://api.dapuntaratya.com/terabox-api/fetch?url=').then(res => {
+fetch(getConf).then(res => {
   return res.json() 
   }).then(data => {
     progressCheck.style.display = 'none';
-    statusTag.classList.add('is-success');
+    statusTag.classList.add('is-success', "has-text-white");
     statusTag.innerHTML = "Server is up!"
     hide(checking)
   }).catch(e => {

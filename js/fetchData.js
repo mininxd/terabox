@@ -1,89 +1,53 @@
-import {obj} from './test.js';
 import './checkServer.js';
+import {downloadList} from './list.js';
+import {nestedFolder} from './api.js';
+
+function sliced(str) {
+  return str.substring(str.lastIndexOf("/") + 1);
+}
+ function slicedName(str) {
+   if(!str) {
+    return
+  } else {
+    return sliced(str);
+  }
+ }
 
 export function getTera(url) {
   fileResult.innerHTML = "";
-fetch(url).then(res => {
+  
+fetch('https://api.mininxd.my.id/terabox/test').then(res => {
   return res.json();
-}).then(data => {
-for(var i = 0; i < data.file.length; i++) {
-  let files = data.file[i];
-  
-  let row = document.createElement('div');
-  row.classList.add('row');
-  
-  let thumb = document.createElement('img');
-  let thumbCell = document.createElement('div');
-  thumb.classList.add('thumb')
-  thumbCell.classList.add('cell')
-
-  let fileName = document.createElement('span');
-  let fileNameCell = document.createElement('div');
-  fileName.classList.add('fileName','title','is-6')
-  fileNameCell.classList.add('cell');
-  
-  let fileSize = document.createElement('span');
-  let fileSizeCell = document.createElement('div');
-  fileSize.classList.add('fileSize', 'subtitle','is-6')
-  fileSizeCell.classList.add('cell');
+}).then(response => {
+  const data = response.nested;
+  const dataLength = Object.keys(data[0]).length;
   
   
-  let copyBtn = document.createElement('span');
-  let copyBtnCell = document.createElement('div');
-  copyBtn.classList.add('material-symbols-outlined');
-  copyBtnCell.classList.add('cell','last');
-  
-  let downBtn = document.createElement('span');
-  let downBtnCell = document.createElement('div');
-  downBtn.classList.add('material-symbols-outlined');
-  downBtn.textContent = 'download';
-  downBtnCell.classList.add('cell','last');
+  for(let i = 0; i < dataLength; i ++) {
+  let fs = data[0][i].fs_id;
+  let filename = slicedName(data[0][i].path)
+  let image = data[0][i].image;
+  let size = data[0][i].size;
+  let link = data[0][i].link
+  console.log(fs,filename, image, size, link)
+  }
 
 
-
-
-thumb.src= files.thumbnail;
-thumbCell.append(thumb);
-fileName.append(files.name);
-fileSize.innerHTML = `<br> ${files.size} MB`;
-fileName.append(fileSize)
-fileNameCell.append(fileName);
-
-copyBtn.textContent = 'content_copy';
-copyBtn.addEventListener('click', function() {
-  navigator.clipboard.writeText(files.url)
-})
-copyBtnCell.append(copyBtn);
-
-downBtn.textContent = 'download';
-downBtnCell.addEventListener('click', function() {
-  window.open(files.url, '_blank')
-})
-downBtnCell.append(downBtn);
-
-row.append(thumbCell);
-row.append(fileNameCell);
-row.append(copyBtnCell);
-row.append(downBtnCell);
-
-fileResult.append(row);
-
-}
 
 
 footer.classList.remove('is-hidden');
 hiddenItem.classList.add('is-hidden');
 fetchBtn.classList.remove('is-loading');
 fetchBtn.disabled = false;
-saweria.addEventListener('click', function() {
+/* saweria.addEventListener('click', function() {
  window.open('https://saweria.co/mininxd', '_blank'); 
 })
-whatsapp.addEventListener('click', function() {
+ whatsapp.addEventListener('click', function() {
  window.open('https://whatsapp.com/channel/0029VaieVG35K3zatnIond0s', '_blank'); 
 })
+*/ 
 
-
-}).then(e => {
+}).catch(e => {
   console.log(e)
   fetchBtn.classList.remove('is-loading');
   fetchBtn.disabled = false;

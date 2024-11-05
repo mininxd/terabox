@@ -34,20 +34,22 @@ input, input:focus, input:active  {
   border-radius: 10px 0 0 10px !important;
   outline: none;
 }
+.grid {
+  display: flex;
+}
 .row {
   display: grid;
-  grid-template-columns: 15% 60% 10% 10%;
+  padding: 5px;
+  grid-template-columns: 15% 85%;
   border: 1px solid #5552;
   border-radius: 10px;
   margin: 5px;
 }
 .cell {
   margin: 10px;
-  padding: 5px;
   overflow-x: scroll;
 }
 .cell:nth-child(3), .cell:nth-child(4) {
-  display: grid;
   width: 40px;
   height: inherit;
   align-items: center;
@@ -57,9 +59,6 @@ input, input:focus, input:active  {
 }
 span.fileName {
   color: #222;
-}
-span.fileSize {
-  color: #777;
 }
 .subtitle {
   font-weight: 400 !important;
@@ -74,7 +73,11 @@ span.fileSize {
 }
 
 img.thumb {
-  width:100%;
+width:auto;
 height:100%;
 object-fit:cover;
+border-radius: 5px;
+}
+.bold {
+  font-weight: bold;
 }

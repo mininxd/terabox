@@ -1,5 +1,5 @@
 import {getTera} from './fetchData.js';
-import {api, uri} from './api.js';
+import {file_gen, link_gen, uri} from './api.js';
 let link = document.getElementById('inputUrl');
 
 fetchBtn.addEventListener('click', function(e) {
@@ -8,11 +8,13 @@ fetchBtn.addEventListener('click', function(e) {
   fetchBtn.classList.add('is-loading');
   fetchBtn.disabled = true;
   try {
-  getTera(api + uri(link.value));
+  getTera();
+ // getTera(file_gen + uri(link.value));
   } catch(e) {
   console.log(e)
   }
 })
+
 
 /*
 fetch('./test.json').then(res => {
